@@ -52,14 +52,14 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.487",
+    "@cdk8s/projen-common": "^0.0.515",
     "@types/jest": "^27",
     "@types/minimatch": "^3.0.5",
     "@types/node": "^16 <= 16.18.78",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
-    "cdk8s": "2.68.32",
-    "cdk8s-cli": "^2.198.37",
+    "cdk8s": "2.68.59",
+    "cdk8s-cli": "^2.198.99",
     "constructs": "10.3.0",
     "eslint": "^8",
     "eslint-import-resolver-typescript": "^2.7.1",
@@ -67,11 +67,11 @@
     "jest": "^27",
     "jest-junit": "^15",
     "jsii": "1.x",
-    "jsii-diff": "^1.94.0",
+    "jsii-diff": "^1.97.0",
     "jsii-docgen": "^3.8.31",
-    "jsii-pacmak": "^1.94.0",
+    "jsii-pacmak": "^1.97.0",
     "jsii-rosetta": "1.x",
-    "projen": "^0.79.8",
+    "projen": "^0.81.0",
     "snake-case": "^3.0.4",
     "standard-version": "^9",
     "ts-jest": "^27",
@@ -107,6 +107,9 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
