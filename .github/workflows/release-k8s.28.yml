@@ -59,6 +59,11 @@ jobs:
     name: Publish to GitHub Releases
     needs:
       - release
+      - release_npm
+      - release_maven
+      - release_pypi
+      - release_nuget
+      - release_golang
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -108,13 +113,17 @@ jobs:
       - name: Install Dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
-        run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
+        run: |
+          tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
+          # grep replace the package name and append @cedarai scope
+          sed -i "s/\"name\": \"cdk8s-plus-28\",/\"name\": \"@cedarai\/cdk8s-plus-28\",/g" .repo/package.json
       - name: Move build artifact out of the way
         run: mv dist dist.old
       - name: Create js artifact
         run: cd .repo && npx projen package:js
-      - name: Collect js artifact
-        run: mv .repo/dist dist
+      - name: Collect js Artifact
+        run: | 
+          mv .repo/dist dist
       - name: Release
         env:
           NPM_DIST_TAG: latest
