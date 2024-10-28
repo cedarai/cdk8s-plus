@@ -59,11 +59,6 @@ jobs:
     name: Publish to GitHub Releases
     needs:
       - release
-      - release_npm
-      - release_maven
-      - release_pypi
-      - release_nuget
-      - release_golang
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -123,7 +118,7 @@ jobs:
       - name: Release
         env:
           NPM_DIST_TAG: latest
-          NPM_REGISTRY: registry.npmjs.org
+          NPM_REGISTRY: npm.pkg.github.com
           NPM_CONFIG_PROVENANCE: "true"
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
