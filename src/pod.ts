@@ -41,6 +41,7 @@ export abstract class AbstractPod extends base.Resource implements IPodSelector,
     this.dns = new PodDns(props.dns);
     this.dockerRegistryAuth = props.dockerRegistryAuth;
     this.automountServiceAccountToken = props.automountServiceAccountToken ?? false;
+    this.shareProcessNamespace = props.shareProcessNamespace ?? false;
     this.isolate = props.isolate ?? false;
     this.hostNetwork = props.hostNetwork ?? false;
     this.terminationGracePeriod = props.terminationGracePeriod ?? Duration.seconds(30);
