@@ -11,7 +11,7 @@ const K8S_VERSION = `1.${SPEC_VERSION}.0`;
 const LATEST_SUPPORTED_K8S_VERSION = Number(SPEC_VERSION);
 
 const project = new Cdk8sTeamJsiiProject({
-  name: `@cedarai/cdk8s-plus-${SPEC_VERSION}`,
+  name: `cdk8s-plus-${SPEC_VERSION}`,
   description: `cdk8s+ is a software development framework that provides high level abstractions for authoring Kubernetes applications. cdk8s-plus-${SPEC_VERSION} synthesizes Kubernetes manifests for Kubernetes ${K8S_VERSION}`,
   projenrcTs: true,
   repoName: 'cdk8s-plus',

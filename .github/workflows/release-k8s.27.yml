@@ -117,7 +117,10 @@ jobs:
       - name: Create js artifact
         run: cd .repo && npx projen package:js
       - name: Collect js Artifact
-        run: mv .repo/dist dist
+        run: | 
+          mv .repo/dist dist
+          # grep replace the package name and append @cedarai scope
+          sed -i "s/\"name\": \"@cedarai\/cdk8s-plus-27\",/\"name\": \"@cedarai\/cdk8s-plus-27\",/g" dist/package.json
       - name: Release
         env:
           NPM_DIST_TAG: latest

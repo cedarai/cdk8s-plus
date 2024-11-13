@@ -1,5 +1,5 @@
 {
-  "name": "@cedarai/cdk8s-plus-27",
+  "name": "cdk8s-plus-27",
   "description": "cdk8s+ is a software development framework that provides high level abstractions for authoring Kubernetes applications. cdk8s-plus-27 synthesizes Kubernetes manifests for Kubernetes 1.27.0",
   "repository": {
     "type": "git",
