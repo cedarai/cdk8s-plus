@@ -116,7 +116,10 @@ jobs:
       - name: Install Dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
-        run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
+        run: |
+          tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
+          # grep replace the package name and append @cedarai scope
+          sed -i "s/\"name\": \"cdk8s-plus-30\",/\"name\": \"@cedarai\/cdk8s-plus-30\",/g" .repo/package.json
       - name: Move build artifact out of the way
         run: mv dist dist.old
       - name: Create js artifact
@@ -126,7 +129,7 @@ jobs:
       - name: Release
         env:
           NPM_DIST_TAG: latest
-          NPM_REGISTRY: registry.npmjs.org
+          NPM_REGISTRY: npm.pkg.github.com
           NPM_CONFIG_PROVENANCE: "true"
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
