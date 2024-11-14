@@ -195,6 +195,9 @@
     "eslint": {
       "name": "eslint",
       "description": "Runs eslint against the codebase",
+      "env": {
+        "ESLINT_USE_FLAT_CONFIG": "false"
+      },
       "steps": [
         {
           "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools projenrc .projenrc.ts",
@@ -405,7 +408,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=jsii,jsii-docgen,jsii-pacmak,jsii-rosetta,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=jsii,jsii-docgen,jsii-pacmak,jsii-rosetta,typescript"
         },
         {
           "exec": "yarn install --check-files"
@@ -429,7 +432,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=projen,@cdk8s/projen-common"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=projen,@cdk8s/projen-common"
         },
         {
           "exec": "yarn install --check-files"
@@ -453,13 +456,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/minimatch,backport,cdk8s,cdk8s-cli,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,snake-case,ts-node,minimatch"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=@types/minimatch,backport,cdk8s,cdk8s-cli,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,snake-case,ts-node,minimatch"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/minimatch @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser backport cdk8s cdk8s-cli commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff snake-case ts-jest ts-node minimatch"
+          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/minimatch @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser backport cdk8s cdk8s-cli commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff snake-case ts-jest ts-node minimatch"
         },
         {
           "exec": "npx projen"
@@ -477,7 +480,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=prod,optional --filter=minimatch"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=prod,optional --filter=minimatch"
         },
         {
           "exec": "yarn install --check-files"
